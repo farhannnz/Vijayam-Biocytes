@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Vijayam Biocytes Pvt. Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">VBC</span>
+                <span class="brand-name">Vijayam Biocytes</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="social.html">Social</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Science-backed plant boosters for sustainable agriculture</p>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid">
+                <div class="product-card" onclick="openModal('product1')">
+                    <div class="product-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Protein Hydrolysate Powder</h3>
+                    <p>100% Pure amino acid mixture for all crops</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <div class="product-card" onclick="openModal('product2')">
+                    <div class="product-image">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Liquid Protein Hydrolysate</h3>
+                    <p>50% protein solution for easy application</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <div class="product-card" onclick="openModal('product3')">
+                    <div class="product-image">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>NATCA Powder</h3>
+                    <p>99% pure plant growth promoter</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <div class="product-card" onclick="openModal('product4')">
+                    <div class="product-image">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Amino Acid + NATCA Combo</h3>
+                    <p>Combined formulation for enhanced results</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="production-capacity">
+        <div class="container">
+            <h2 class="section-title">Production Capacity</h2>
+            <div class="capacity-grid">
+                <div class="capacity-card">
+                    <i class="fas fa-industry icon"></i>
+                    <h3>Amino Acids</h3>
+                    <p>600 KL Liquid / 300 MT Powder per Annum</p>
+                </div>
+                <div class="capacity-card">
+                    <i class="fas fa-industry icon"></i>
+                    <h3>NATCA</h3>
+                    <p>50 MT per Annum</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Vijayam Biocytes Pvt. Ltd.</h3>
+                    <p>Leading manufacturer of plant boosters and sustainable agricultural solutions since 2003.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 9047053888</p>
+                    <p><i class="fas fa-phone"></i> +91 9840200022</p>
+                    <p><i class="fas fa-envelope"></i> vijayambio2020@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vijayam Biocytes Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modals -->
+    <div id="product1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('product1')">&times;</span>
+            <h2>Protein Hydrolysate Powder (100% Pure)</h2>
+            <p><strong>Description:</strong> A mixture of amino acids extracted from natural sources through comprehensive hydrolysis, filtration, pH adjustments, purification, and de-colourization processes. Enhances productivity of all crops through foliar spray and drenching application.</p>
+            <p><strong>Composition:</strong></p>
+            <ul>
+                <li>Total Dissolved Solids: 40-42%</li>
+                <li>pH: 3.5-4.5</li>
+                <li>Total Organic Carbon: 6-7%</li>
+                <li>Total Nitrogen: 6.5-7.0%</li>
+            </ul>
+            <p><strong>Usage:</strong> Dissolve 5-6 ml in 1 liter of water and apply through spraying or drenching at initial growth, flowering, and fruiting stages.</p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>Enhances chlorophyll synthesis</li>
+                <li>Makes plants stress resistant</li>
+                <li>Promotes flowering & fruit formation</li>
+                <li>Helps promoting soil micro flora</li>
+                <li>Maintains and improves protein synthesis</li>
+                <li>Enhances photosynthesis making plant lush green</li>
+            </ul>
+            <p><strong>Compatibility:</strong> Compatible with all types of insecticides, herbicides, and fungicides.</p>
+        </div>
+    </div>
+
+    <div id="product2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('product2')">&times;</span>
+            <h2>Liquid Protein Hydrolysate (50% Protein)</h2>
+            <p><strong>Description:</strong> Liquid formulation of amino acid mixture for easy application and rapid absorption by plants.</p>
+            <p><strong>Composition:</strong> 50% Protein concentration with balanced amino acid profile</p>
+            <p><strong>Usage:</strong> Apply through foliar spray or drip irrigation. Dissolve 6-7 ml in 1 liter of water.</p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>Maintains and improves protein synthesis</li>
+                <li>Controls stress before and after shock</li>
+                <li>Enhances photosynthesis</li>
+                <li>Supports stomatal regulation</li>
+                <li>Supports pollination and fruit formation</li>
+                <li>Strengthens cell walls</li>
+                <li>Increases resistance to unfavorable climatic conditions</li>
+                <li>Supports biomass production and yield</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="product3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('product3')">&times;</span>
+            <h2>NATCA Powder (99% Pure)</h2>
+            <p><strong>Description:</strong> N-Acetyl Thiazolidine-4-Carboxylic Acid, a plant growth promoter derived from sulphur-rich amino acid L-Cysteine. Serves as an effective plant growth regulator.</p>
+            <p><strong>Manufacturing Process:</strong> L-Cysteine hydrochloride monohydrate is reacted with formaldehyde solution, alkalized using caustic alkali, subjected to acetylation with acetic anhydride, pH adjusted, centrifuged, washed, dried, and packed.</p>
+            <p><strong>Composition:</strong> 99% Pure NATCA</p>
+            <p><strong>Usage:</strong> Dissolve at 500-1000 ppm and apply through foliar spray or drenching at critical growth stages.</p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>Enhances protein synthesis</li>
+                <li>Controls stress and promotes fast recovery</li>
+                <li>Enhances photosynthesis</li>
+                <li>Supports pollination and fruit formation</li>
+                <li>Improves soil micro flora</li>
+                <li>Enhances plant's hydric balance</li>
+                <li>Increases resistance to unfavorable conditions</li>
+                <li>Supports disease suppression</li>
+            </ul>
+            <p><strong>Application Stages:</strong> Initial growth, flowering, and fruiting stages</p>
+        </div>
+    </div>
+
+    <div id="product4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('product4')">&times;</span>
+            <h2>Amino Acid + NATCA Combination</h2>
+            <p><strong>Description:</strong> Specialized combination product leveraging the benefits of both amino acids and NATCA for comprehensive plant nutrition and growth promotion.</p>
+            <p><strong>Benefits:</strong></p>
+            <ul>
+                <li>Complete plant nutrition solution</li>
+                <li>Enhanced stress tolerance</li>
+                <li>Improved crop quality and yield</li>
+                <li>Better soil health</li>
+                <li>Synergistic effect of both components</li>
+            </ul>
+            <p><strong>Usage:</strong> Follow recommended dosage for specific crops and growth stages.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

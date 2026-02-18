@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Vijayam Biocytes Pvt. Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <span class="logo">VBC</span>
+                <span class="brand-name">Vijayam Biocytes</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="social.html">Social</a></li>
+                <li><a href="careers.html" class="active">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Careers</h1>
+            <p>Join our team and make a difference in sustainable agriculture</p>
+        </div>
+    </section>
+
+    <section class="careers-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2>Work With Us</h2>
+                <p>At Vijayam Biocytes, we believe in fostering a culture of innovation, collaboration, and excellence. Our team comprises dedicated experts passionate about advancing sustainable agriculture and making a positive impact on farmers' lives across India.</p>
+                <p>We offer a dynamic work environment where your skills and ideas are valued, and you have the opportunity to grow professionally while contributing to meaningful work in the agricultural biotechnology sector.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-join">
+        <div class="container">
+            <h2 class="section-title">Why Join Vijayam Biocytes</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <i class="fas fa-lightbulb icon"></i>
+                    <h3>Innovation-Driven</h3>
+                    <p>Work on cutting-edge research and development projects</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users icon"></i>
+                    <h3>Collaborative Culture</h3>
+                    <p>Be part of a supportive and inclusive team environment</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Career Growth</h3>
+                    <p>Opportunities for professional development and advancement</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-heart icon"></i>
+                    <h3>Meaningful Impact</h3>
+                    <p>Contribute to sustainable agriculture and farmer welfare</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="job-openings">
+        <div class="container">
+            <h2 class="section-title">Current Openings</h2>
+            <div class="jobs-grid">
+                <div class="job-card">
+                    <h3>Research Scientist</h3>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Tirupati, Andhra Pradesh</p>
+                    <p class="job-description">Lead research initiatives in amino acid and NATCA development. Conduct field trials and product optimization.</p>
+                    <button class="btn btn-primary" onclick="openModal('applyModal')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Production Manager</h3>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Tirupati, Andhra Pradesh</p>
+                    <p class="job-description">Oversee manufacturing operations, ensure quality control, and optimize production processes.</p>
+                    <button class="btn btn-primary" onclick="openModal('applyModal')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Agricultural Field Officer</h3>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Multiple Locations</p>
+                    <p class="job-description">Provide technical support to farmers, conduct product demonstrations, and gather field feedback.</p>
+                    <button class="btn btn-primary" onclick="openModal('applyModal')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Quality Control Analyst</h3>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</p>
+                    <p class="job-description">Perform quality testing, maintain laboratory standards, and ensure product compliance.</p>
+                    <button class="btn btn-primary" onclick="openModal('applyModal')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Sales Executive</h3>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Multiple Locations</p>
+                    <p class="job-description">Drive sales growth, build distributor relationships, and expand market presence.</p>
+                    <button class="btn btn-primary" onclick="openModal('applyModal')">Apply Now</button>
+                </div>
+
+                <div class="job-card">
+                    <h3>Marketing Manager</h3>
+                    <p class="job-location"><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</p>
+                    <p class="job-description">Develop marketing strategies, manage brand presence, and coordinate promotional activities.</p>
+                    <button class="btn btn-primary" onclick="openModal('applyModal')">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Vijayam Biocytes Pvt. Ltd.</h3>
+                    <p>Leading manufacturer of plant boosters and sustainable agricultural solutions since 2003.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 9047053888</p>
+                    <p><i class="fas fa-phone"></i> +91 9840200022</p>
+                    <p><i class="fas fa-envelope"></i> vijayambio2020@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vijayam Biocytes Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Modal -->
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('applyModal')">&times;</span>
+            <h2>Job Application</h2>
+            <form id="applicationForm" class="contact-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="position">Position Applied For *</label>
+                    <input type="text" id="position" name="position" required>
+                </div>
+                <div class="form-group">
+                    <label for="experience">Years of Experience</label>
+                    <input type="text" id="experience" name="experience">
+                </div>
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter</label>
+                    <textarea id="coverLetter" name="coverLetter" rows="5"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
