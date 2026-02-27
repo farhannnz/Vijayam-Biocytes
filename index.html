@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vijayam Biocytes Pvt. Ltd. - Plant Boosters & Sustainable Agriculture</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <span class="logo">VBC</span>
+                <img src="https://i.ibb.co/W44vB99T/Screenshot-2026-02-27-143550.png" alt="Vijayam Biocytes Logo"
+                    class="logo-img">
                 <span class="brand-name">Vijayam Biocytes</span>
             </div>
             <button class="nav-toggle" id="navToggle">
@@ -37,16 +42,25 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-slider">
-            <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1920&q=80');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1920&q=80');"></div>
+            <div class="hero-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1920&q=80');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=1920&q=80');">
+            </div>
+            <div class="hero-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1920&q=80');">
+            </div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-container">
             <div class="hero-content">
+                <img src="https://i.ibb.co/W44vB99T/Screenshot-2026-02-27-143550.png" alt="Vijayam Biocytes Logo"
+                    class="hero-logo">
                 <h1 class="hero-title">Vijayam Biocytes</h1>
                 <h2 class="hero-subtitle">Empowering Agriculture with Science-Backed Plant Boosters</h2>
-                <p class="hero-description">Leading manufacturer of Amino Acids & NATCA-based sustainable solutions for enhanced crop productivity</p>
+                <p class="hero-description">Leading manufacturer of Amino Acids & NATCA-based sustainable solutions for
+                    enhanced crop productivity</p>
                 <div class="hero-buttons">
                     <a href="products.html" class="btn btn-primary">Explore Products</a>
                     <a href="contact.html" class="btn btn-secondary">Contact Us</a>
@@ -94,6 +108,14 @@
         <div class="container">
             <h2 class="section-title">Our Featured Products</h2>
             <div class="products-grid">
+                <div class="product-card" onclick="openModal('product0')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/G3thrXpc/Whats-App-Image-2026-02-27-at-13-19-36.jpg" alt="ZinO max">
+                    </div>
+                    <h3>ZinO max - Zinc Oxide Suspension</h3>
+                    <p>39.5% Zn - Rapidly corrects zinc deficiency</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
                 <div class="product-card" onclick="openModal('product1')">
                     <div class="product-image">
                         <i class="fas fa-seedling"></i>
@@ -108,14 +130,6 @@
                     </div>
                     <h3>NATCA Powder</h3>
                     <p>Plant growth promoter derived from L-Cysteine</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-                <div class="product-card" onclick="openModal('product3')">
-                    <div class="product-image">
-                        <i class="fas fa-tint"></i>
-                    </div>
-                    <h3>Liquid Protein Hydrolysate</h3>
-                    <p>50% protein solution for foliar application</p>
                     <button class="btn btn-small">View Details</button>
                 </div>
             </div>
@@ -172,12 +186,14 @@
             <h2 class="section-title">What Our Clients Say</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p>"Vijayam Biocytes products have significantly improved our crop yield. The amino acid mixture works wonders!"</p>
+                    <p>"Vijayam Biocytes products have significantly improved our crop yield. The amino acid mixture
+                        works wonders!"</p>
                     <h4>Rajesh Kumar</h4>
                     <span>Farmer, Andhra Pradesh</span>
                 </div>
                 <div class="testimonial-card">
-                    <p>"NATCA has been a game-changer for stress resistance in our crops. Highly recommend their products."</p>
+                    <p>"NATCA has been a game-changer for stress resistance in our crops. Highly recommend their
+                        products."</p>
                     <h4>Suresh Patel</h4>
                     <span>Agricultural Distributor</span>
                 </div>
@@ -229,13 +245,72 @@
     </footer>
 
     <!-- Product Modals -->
+    <div id="product0" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('product0')">&times;</span>
+            <h2>ZinO max – Zinc Oxide Suspension Concentrate (39.5% Zn)</h2>
+            <p><strong>Description:</strong> ZinO max is a high-quality Zinc Oxide Suspension Concentrate containing
+                39.5% elemental Zinc (Zn). It is specially formulated to quickly correct zinc deficiency in crops and
+                improve overall plant growth and yield.</p>
+
+            <p><strong>Product Specifications:</strong></p>
+            <ul>
+                <li>Composition: Zinc Oxide Suspension Concentrate</li>
+                <li>Zinc Content: 39.5% Zn</li>
+                <li>Application Method: Foliar Spray (suitable for all crops)</li>
+                <li>Recommended Dosage: 120 ml per acre</li>
+                <li>Pack Size: 120 ml</li>
+            </ul>
+
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li><strong>Rapidly Corrects Zinc Deficiency:</strong> Effectively treats zinc deficiency symptoms such
+                    as yellowing leaves and stunted growth</li>
+                <li><strong>Enhances Nutrient Uptake (N & P):</strong> Improves absorption of essential nutrients like
+                    Nitrogen and Phosphorus</li>
+                <li><strong>Promotes Strong Root Development:</strong> Encourages deeper and healthier root systems for
+                    better nutrient absorption</li>
+                <li><strong>Boosts Flowering & Fruiting:</strong> Supports improved flower formation and fruit
+                    development</li>
+                <li><strong>Improves Photosynthesis:</strong> Maintains healthy green leaves and enhances energy
+                    production in plants</li>
+                <li><strong>Reduces Biotic & Abiotic Stress:</strong> Helps crops tolerate pest attacks, diseases, and
+                    environmental stress</li>
+                <li><strong>Increases Yield & Crop Quality:</strong> Leads to higher productivity and better
+                    market-quality produce</li>
+            </ul>
+
+            <p><strong>Suitable Crops:</strong></p>
+            <ul>
+                <li>Cereals (Wheat, Rice, Maize)</li>
+                <li>Pulses</li>
+                <li>Oilseeds</li>
+                <li>Fruits & Vegetables</li>
+                <li>Cotton</li>
+                <li>Plantation Crops</li>
+                <li>Horticultural Crops</li>
+            </ul>
+
+            <p><strong>Application Instructions:</strong></p>
+            <ul>
+                <li>Mix 120 ml per acre in the recommended quantity of water</li>
+                <li>Spray evenly on crop foliage</li>
+                <li>Apply during the early morning or late evening for best results</li>
+                <li>Avoid spraying during extreme heat or rainfall</li>
+            </ul>
+        </div>
+    </div>
+
     <div id="product1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product1')">&times;</span>
             <h2>Protein Hydrolysate (Amino Acid Mixture)</h2>
-            <p><strong>Description:</strong> A mixture of amino acids extracted from natural sources that enhances productivity of all crops through foliar spray and drenching application.</p>
-            <p><strong>Composition:</strong> Total Dissolved Solids 40-42%, pH 3.5-4.5, Total Organic Carbon 6-7%, Total Nitrogen 6.5-7.0%</p>
-            <p><strong>Usage:</strong> Dissolve 5-6 ml in 1 liter of water and apply through spraying or drenching at initial growth, flowering, and fruiting stages.</p>
+            <p><strong>Description:</strong> A mixture of amino acids extracted from natural sources that enhances
+                productivity of all crops through foliar spray and drenching application.</p>
+            <p><strong>Composition:</strong> Total Dissolved Solids 40-42%, pH 3.5-4.5, Total Organic Carbon 6-7%, Total
+                Nitrogen 6.5-7.0%</p>
+            <p><strong>Usage:</strong> Dissolve 5-6 ml in 1 liter of water and apply through spraying or drenching at
+                initial growth, flowering, and fruiting stages.</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Enhances chlorophyll synthesis</li>
@@ -250,9 +325,11 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('product2')">&times;</span>
             <h2>NATCA (N-Acetyl Thiazolidine-4-Carboxylic Acid)</h2>
-            <p><strong>Description:</strong> Plant growth promoter derived from sulphur-rich amino acid L-Cysteine, serving as an effective plant growth regulator.</p>
+            <p><strong>Description:</strong> Plant growth promoter derived from sulphur-rich amino acid L-Cysteine,
+                serving as an effective plant growth regulator.</p>
             <p><strong>Composition:</strong> 99% Pure NATCA Powder</p>
-            <p><strong>Usage:</strong> Dissolve at 500-1000 ppm and apply through foliar spray or drenching at critical growth stages.</p>
+            <p><strong>Usage:</strong> Dissolve at 500-1000 ppm and apply through foliar spray or drenching at critical
+                growth stages.</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Enhances protein synthesis</li>
@@ -268,7 +345,8 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('product3')">&times;</span>
             <h2>Liquid Protein Hydrolysate</h2>
-            <p><strong>Description:</strong> 50% protein liquid formulation for easy application and rapid absorption by plants.</p>
+            <p><strong>Description:</strong> 50% protein liquid formulation for easy application and rapid absorption by
+                plants.</p>
             <p><strong>Composition:</strong> 50% Protein concentration</p>
             <p><strong>Usage:</strong> Apply through foliar spray or drip irrigation at recommended dilution rates.</p>
             <p><strong>Benefits:</strong></p>
@@ -284,4 +362,6 @@
 
     <script src="script.js"></script>
 </body>
+
+
 </html>

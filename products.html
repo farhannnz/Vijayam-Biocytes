@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Vijayam Biocytes Pvt. Ltd.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <span class="logo">VBC</span>
+                <img src="https://i.ibb.co/W44vB99T/Screenshot-2026-02-27-143550.png" alt="Vijayam Biocytes Logo"
+                    class="logo-img">
                 <span class="brand-name">Vijayam Biocytes</span>
             </div>
             <button class="nav-toggle" id="navToggle">
@@ -43,6 +48,15 @@
     <section class="products-section">
         <div class="container">
             <div class="products-grid">
+                <div class="product-card" onclick="openModal('product0')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/G3thrXpc/Whats-App-Image-2026-02-27-at-13-19-36.jpg" alt="ZinO max">
+                    </div>
+                    <h3>ZinO max - Zinc Oxide Suspension</h3>
+                    <p>39.5% Zn - Rapidly corrects zinc deficiency</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
                 <div class="product-card" onclick="openModal('product1')">
                     <div class="product-image">
                         <i class="fas fa-seedling"></i>
@@ -130,11 +144,71 @@
     </footer>
 
     <!-- Product Modals -->
+    <div id="product0" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('product0')">&times;</span>
+            <h2>ZinO max – Zinc Oxide Suspension Concentrate (39.5% Zn)</h2>
+            <p><strong>Description:</strong> ZinO max is a high-quality Zinc Oxide Suspension Concentrate containing
+                39.5% elemental Zinc (Zn). It is specially formulated to quickly correct zinc deficiency in crops and
+                improve overall plant growth and yield.</p>
+
+            <p><strong>Product Specifications:</strong></p>
+            <ul>
+                <li>Composition: Zinc Oxide Suspension Concentrate</li>
+                <li>Zinc Content: 39.5% Zn</li>
+                <li>Application Method: Foliar Spray (suitable for all crops)</li>
+                <li>Recommended Dosage: 120 ml per acre</li>
+                <li>Pack Size: 120 ml</li>
+            </ul>
+
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li><strong>Rapidly Corrects Zinc Deficiency:</strong> Effectively treats zinc deficiency symptoms such
+                    as yellowing leaves and stunted growth</li>
+                <li><strong>Enhances Nutrient Uptake (N & P):</strong> Improves absorption of essential nutrients like
+                    Nitrogen and Phosphorus</li>
+                <li><strong>Promotes Strong Root Development:</strong> Encourages deeper and healthier root systems for
+                    better nutrient absorption</li>
+                <li><strong>Boosts Flowering & Fruiting:</strong> Supports improved flower formation and fruit
+                    development</li>
+                <li><strong>Improves Photosynthesis:</strong> Maintains healthy green leaves and enhances energy
+                    production in plants</li>
+                <li><strong>Reduces Biotic & Abiotic Stress:</strong> Helps crops tolerate pest attacks, diseases, and
+                    environmental stress</li>
+                <li><strong>Increases Yield & Crop Quality:</strong> Leads to higher productivity and better
+                    market-quality produce</li>
+            </ul>
+
+            <p><strong>Suitable Crops:</strong></p>
+            <ul>
+                <li>Cereals (Wheat, Rice, Maize)</li>
+                <li>Pulses</li>
+                <li>Oilseeds</li>
+                <li>Fruits & Vegetables</li>
+                <li>Cotton</li>
+                <li>Plantation Crops</li>
+                <li>Horticultural Crops</li>
+            </ul>
+
+            <p><strong>Application Instructions:</strong></p>
+            <ul>
+                <li>Mix 120 ml per acre in the recommended quantity of water</li>
+                <li>Spray evenly on crop foliage</li>
+                <li>Apply during the early morning or late evening for best results</li>
+                <li>Avoid spraying during extreme heat or rainfall</li>
+            </ul>
+        </div>
+    </div>
+
     <div id="product1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product1')">&times;</span>
             <h2>Protein Hydrolysate Powder (100% Pure)</h2>
-            <p><strong>Description:</strong> A mixture of amino acids extracted from natural sources through comprehensive hydrolysis, filtration, pH adjustments, purification, and de-colourization processes. Enhances productivity of all crops through foliar spray and drenching application.</p>
+            <p><strong>Description:</strong> A mixture of amino acids extracted from natural sources through
+                comprehensive
+                hydrolysis, filtration, pH adjustments, purification, and de-colourization processes. Enhances
+                productivity
+                of all crops through foliar spray and drenching application.</p>
             <p><strong>Composition:</strong></p>
             <ul>
                 <li>Total Dissolved Solids: 40-42%</li>
@@ -142,7 +216,8 @@
                 <li>Total Organic Carbon: 6-7%</li>
                 <li>Total Nitrogen: 6.5-7.0%</li>
             </ul>
-            <p><strong>Usage:</strong> Dissolve 5-6 ml in 1 liter of water and apply through spraying or drenching at initial growth, flowering, and fruiting stages.</p>
+            <p><strong>Usage:</strong> Dissolve 5-6 ml in 1 liter of water and apply through spraying or drenching at
+                initial growth, flowering, and fruiting stages.</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Enhances chlorophyll synthesis</li>
@@ -152,7 +227,8 @@
                 <li>Maintains and improves protein synthesis</li>
                 <li>Enhances photosynthesis making plant lush green</li>
             </ul>
-            <p><strong>Compatibility:</strong> Compatible with all types of insecticides, herbicides, and fungicides.</p>
+            <p><strong>Compatibility:</strong> Compatible with all types of insecticides, herbicides, and fungicides.
+            </p>
         </div>
     </div>
 
@@ -160,9 +236,11 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('product2')">&times;</span>
             <h2>Liquid Protein Hydrolysate (50% Protein)</h2>
-            <p><strong>Description:</strong> Liquid formulation of amino acid mixture for easy application and rapid absorption by plants.</p>
+            <p><strong>Description:</strong> Liquid formulation of amino acid mixture for easy application and rapid
+                absorption by plants.</p>
             <p><strong>Composition:</strong> 50% Protein concentration with balanced amino acid profile</p>
-            <p><strong>Usage:</strong> Apply through foliar spray or drip irrigation. Dissolve 6-7 ml in 1 liter of water.</p>
+            <p><strong>Usage:</strong> Apply through foliar spray or drip irrigation. Dissolve 6-7 ml in 1 liter of
+                water.</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Maintains and improves protein synthesis</li>
@@ -181,10 +259,14 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('product3')">&times;</span>
             <h2>NATCA Powder (99% Pure)</h2>
-            <p><strong>Description:</strong> N-Acetyl Thiazolidine-4-Carboxylic Acid, a plant growth promoter derived from sulphur-rich amino acid L-Cysteine. Serves as an effective plant growth regulator.</p>
-            <p><strong>Manufacturing Process:</strong> L-Cysteine hydrochloride monohydrate is reacted with formaldehyde solution, alkalized using caustic alkali, subjected to acetylation with acetic anhydride, pH adjusted, centrifuged, washed, dried, and packed.</p>
+            <p><strong>Description:</strong> N-Acetyl Thiazolidine-4-Carboxylic Acid, a plant growth promoter derived
+                from sulphur-rich amino acid L-Cysteine. Serves as an effective plant growth regulator.</p>
+            <p><strong>Manufacturing Process:</strong> L-Cysteine hydrochloride monohydrate is reacted with formaldehyde
+                solution, alkalized using caustic alkali, subjected to acetylation with acetic anhydride, pH adjusted,
+                centrifuged, washed, dried, and packed.</p>
             <p><strong>Composition:</strong> 99% Pure NATCA</p>
-            <p><strong>Usage:</strong> Dissolve at 500-1000 ppm and apply through foliar spray or drenching at critical growth stages.</p>
+            <p><strong>Usage:</strong> Dissolve at 500-1000 ppm and apply through foliar spray or drenching at critical
+                growth stages.</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Enhances protein synthesis</li>
@@ -204,7 +286,8 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('product4')">&times;</span>
             <h2>Amino Acid + NATCA Combination</h2>
-            <p><strong>Description:</strong> Specialized combination product leveraging the benefits of both amino acids and NATCA for comprehensive plant nutrition and growth promotion.</p>
+            <p><strong>Description:</strong> Specialized combination product leveraging the benefits of both amino acids
+                and NATCA for comprehensive plant nutrition and growth promotion.</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Complete plant nutrition solution</li>
@@ -219,4 +302,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
