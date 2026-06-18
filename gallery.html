@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Vijayam Biocytes Pvt. Ltd.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.2rem;
+            padding: 2rem 0 3rem;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 4/3;
+            background: #f0f0f0;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(44, 100, 44, 0.45);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .gallery-item .overlay i {
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-inner {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .lightbox-inner img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -2.5rem;
+            right: 0;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            line-height: 1;
+        }
+
+        .lightbox-prev,
+        .lightbox-next {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            color: #fff;
+            font-size: 1.8rem;
+            padding: 0.8rem 1rem;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .lightbox-prev { left: 1rem; }
+        .lightbox-next { right: 1rem; }
+
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-counter {
+            text-align: center;
+            color: #ccc;
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <img src="https://i.ibb.co/W44vB99T/Screenshot-2026-02-27-143550.png" alt="Vijayam Biocytes Logo"
+                    class="logo-img">
+                <span class="brand-name">Vijayam Biocytes</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="social.html">Social</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="careers.html">Careers</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Gallery</h1>
+            <p>A glimpse into our facilities, products, and field work</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <img src="https://i.ibb.co/NRPVs5n/Whats-App-Image-2026-06-17-at-23-06-01-2.jpg" alt="Vijayam Biocytes Gallery 1" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <img src="https://i.ibb.co/TDDfVkL6/Whats-App-Image-2026-06-17-at-23-06-01-1.jpg" alt="Vijayam Biocytes Gallery 2" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <img src="https://i.ibb.co/1GYCF9W8/Whats-App-Image-2026-06-17-at-23-06-01.jpg" alt="Vijayam Biocytes Gallery 3" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <img src="https://i.ibb.co/7JxJfDWc/Whats-App-Image-2026-06-17-at-23-06-00-2.jpg" alt="Vijayam Biocytes Gallery 4" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <img src="https://i.ibb.co/RpZXKYG9/Whats-App-Image-2026-06-17-at-23-06-00-3.jpg" alt="Vijayam Biocytes Gallery 5" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <img src="https://i.ibb.co/20QJ046Z/Whats-App-Image-2026-06-17-at-23-06-00-1.jpg" alt="Vijayam Biocytes Gallery 6" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <img src="https://i.ibb.co/1GvQp3BL/Whats-App-Image-2026-06-17-at-23-06-00.jpg" alt="Vijayam Biocytes Gallery 7" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <img src="https://i.ibb.co/RTZ44rs1/Whats-App-Image-2026-06-17-at-23-05-59-2.jpg" alt="Vijayam Biocytes Gallery 8" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(8)">
+                    <img src="https://i.ibb.co/xKzZh95G/Whats-App-Image-2026-06-17-at-23-05-59-1.jpg" alt="Vijayam Biocytes Gallery 9" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(9)">
+                    <img src="https://i.ibb.co/qF9mkHJ6/Whats-App-Image-2026-06-17-at-23-05-59.jpg" alt="Vijayam Biocytes Gallery 10" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(10)">
+                    <img src="https://i.ibb.co/233tDBpx/Whats-App-Image-2026-06-17-at-23-05-58.jpg" alt="Vijayam Biocytes Gallery 11" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(11)">
+                    <img src="https://i.ibb.co/Kj2PhjtR/Whats-App-Image-2026-06-17-at-23-05-57-1.jpg" alt="Vijayam Biocytes Gallery 12" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(12)">
+                    <img src="https://i.ibb.co/m5X3P9kz/Whats-App-Image-2026-06-17-at-23-05-57.jpg" alt="Vijayam Biocytes Gallery 13" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(13)">
+                    <img src="https://i.ibb.co/mFrsQfm3/Whats-App-Image-2026-06-17-at-23-05-55-2.jpg" alt="Vijayam Biocytes Gallery 14" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(14)">
+                    <img src="https://i.ibb.co/H3Mb5j3/Whats-App-Image-2026-06-17-at-23-05-55-1.jpg" alt="Vijayam Biocytes Gallery 15" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(15)">
+                    <img src="https://i.ibb.co/Fq8VZDWy/Whats-App-Image-2026-06-17-at-23-05-55.jpg" alt="Vijayam Biocytes Gallery 16" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(16)">
+                    <img src="https://i.ibb.co/RpxCWXxr/Whats-App-Image-2026-06-17-at-23-05-50-1.jpg" alt="Vijayam Biocytes Gallery 17" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(17)">
+                    <img src="https://i.ibb.co/DH14wJ7g/Whats-App-Image-2026-06-17-at-23-05-50.jpg" alt="Vijayam Biocytes Gallery 18" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(18)">
+                    <img src="https://i.ibb.co/YFy0s5cn/Whats-App-Image-2026-06-17-at-23-05-47-1.jpg" alt="Vijayam Biocytes Gallery 19" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(19)">
+                    <img src="https://i.ibb.co/FLN60KZv/Whats-App-Image-2026-06-17-at-23-05-47.jpg" alt="Vijayam Biocytes Gallery 20" loading="lazy">
+                    <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+        <button class="lightbox-prev" onclick="changeImage(-1)"><i class="fas fa-chevron-left"></i></button>
+        <div class="lightbox-inner">
+            <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+            <img id="lightboxImg" src="" alt="Gallery Image">
+            <p class="lightbox-counter" id="lightboxCounter"></p>
+        </div>
+        <button class="lightbox-next" onclick="changeImage(1)"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Vijayam Biocytes Pvt. Ltd.</h3>
+                    <p>Leading manufacturer of plant boosters and sustainable agricultural solutions since 2003.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 9047053888</p>
+                    <p><i class="fas fa-phone"></i> +91 9840200022</p>
+                    <p><i class="fas fa-envelope"></i> vijayambio2020@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vijayam Biocytes Pvt. Ltd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const images = [
+            "https://i.ibb.co/NRPVs5n/Whats-App-Image-2026-06-17-at-23-06-01-2.jpg",
+            "https://i.ibb.co/TDDfVkL6/Whats-App-Image-2026-06-17-at-23-06-01-1.jpg",
+            "https://i.ibb.co/1GYCF9W8/Whats-App-Image-2026-06-17-at-23-06-01.jpg",
+            "https://i.ibb.co/7JxJfDWc/Whats-App-Image-2026-06-17-at-23-06-00-2.jpg",
+            "https://i.ibb.co/RpZXKYG9/Whats-App-Image-2026-06-17-at-23-06-00-3.jpg",
+            "https://i.ibb.co/20QJ046Z/Whats-App-Image-2026-06-17-at-23-06-00-1.jpg",
+            "https://i.ibb.co/1GvQp3BL/Whats-App-Image-2026-06-17-at-23-06-00.jpg",
+            "https://i.ibb.co/RTZ44rs1/Whats-App-Image-2026-06-17-at-23-05-59-2.jpg",
+            "https://i.ibb.co/xKzZh95G/Whats-App-Image-2026-06-17-at-23-05-59-1.jpg",
+            "https://i.ibb.co/qF9mkHJ6/Whats-App-Image-2026-06-17-at-23-05-59.jpg",
+            "https://i.ibb.co/233tDBpx/Whats-App-Image-2026-06-17-at-23-05-58.jpg",
+            "https://i.ibb.co/Kj2PhjtR/Whats-App-Image-2026-06-17-at-23-05-57-1.jpg",
+            "https://i.ibb.co/m5X3P9kz/Whats-App-Image-2026-06-17-at-23-05-57.jpg",
+            "https://i.ibb.co/mFrsQfm3/Whats-App-Image-2026-06-17-at-23-05-55-2.jpg",
+            "https://i.ibb.co/H3Mb5j3/Whats-App-Image-2026-06-17-at-23-05-55-1.jpg",
+            "https://i.ibb.co/Fq8VZDWy/Whats-App-Image-2026-06-17-at-23-05-55.jpg",
+            "https://i.ibb.co/RpxCWXxr/Whats-App-Image-2026-06-17-at-23-05-50-1.jpg",
+            "https://i.ibb.co/DH14wJ7g/Whats-App-Image-2026-06-17-at-23-05-50.jpg",
+            "https://i.ibb.co/YFy0s5cn/Whats-App-Image-2026-06-17-at-23-05-47-1.jpg",
+            "https://i.ibb.co/FLN60KZv/Whats-App-Image-2026-06-17-at-23-05-47.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            document.getElementById('lightboxImg').src = images[index];
+            document.getElementById('lightboxCounter').textContent = (index + 1) + ' / ' + images.length;
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function closeLightboxOnBg(e) {
+            if (e.target === document.getElementById('lightbox')) {
+                closeLightbox();
+            }
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            document.getElementById('lightboxImg').src = images[currentIndex];
+            document.getElementById('lightboxCounter').textContent = (currentIndex + 1) + ' / ' + images.length;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') changeImage(-1);
+            if (e.key === 'ArrowRight') changeImage(1);
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+
+</html>
