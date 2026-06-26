@@ -1,30 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Vijayam Biocytes Pvt. Ltd.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Amino Acids expandable card */
+        .aa-parent-card { cursor:pointer; border: 2px solid var(--primary,#2c6e2c); position:relative; }
+        .aa-parent-card .aa-badge { position:absolute; top:10px; right:10px; background:var(--primary,#2c6e2c); color:#fff; font-size:0.7rem; padding:2px 8px; border-radius:20px; }
+        .aa-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:8000; align-items:center; justify-content:center; padding:1rem; }
+        .aa-overlay.active { display:flex; }
+        .aa-panel { background:#fff; border-radius:14px; max-width:900px; width:100%; max-height:90vh; overflow-y:auto; padding:2rem; position:relative; }
+        .aa-panel h2 { color:var(--primary,#2c6e2c); margin-bottom:1.5rem; text-align:center; }
+        .aa-panel .close-panel { position:absolute; top:1rem; right:1.2rem; font-size:1.8rem; cursor:pointer; color:#555; background:none; border:none; }
+        .aa-type-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem; }
+        .aa-type-btn { padding:1.5rem; border:2px solid var(--primary,#2c6e2c); border-radius:10px; cursor:pointer; text-align:center; background:#f8fdf8; transition:all 0.2s; }
+        .aa-type-btn:hover { background:var(--primary,#2c6e2c); color:#fff; }
+        .aa-type-btn i { font-size:2rem; color:var(--primary,#2c6e2c); display:block; margin-bottom:0.5rem; }
+        .aa-type-btn:hover i { color:#fff; }
+        .aa-type-btn h3 { margin:0; font-size:1.1rem; }
+        .aa-sub-grid { display:none; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem; }
+        .aa-sub-grid.active { display:grid; }
+        .aa-sub-card { border:1px solid #ddd; border-radius:10px; padding:1rem; cursor:pointer; transition:all 0.2s; background:#fff; }
+        .aa-sub-card:hover { border-color:var(--primary,#2c6e2c); box-shadow:0 4px 14px rgba(44,110,44,0.15); }
+        .aa-sub-card h4 { color:var(--primary,#2c6e2c); font-size:0.95rem; margin:0 0 0.4rem; }
+        .aa-sub-card p { font-size:0.82rem; color:#666; margin:0 0 0.8rem; }
+        .aa-back-btn { margin-bottom:1rem; background:none; border:1px solid #aaa; border-radius:6px; padding:0.4rem 0.9rem; cursor:pointer; font-size:0.9rem; color:#555; }
+        .aa-back-btn:hover { background:#f0f0f0; }
+        @media(max-width:600px){ .aa-type-grid{grid-template-columns:1fr;} }
+    </style>
 </head>
-
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <img src="https://i.ibb.co/W44vB99T/Screenshot-2026-02-27-143550.png" alt="Vijayam Biocytes Logo"
-                    class="logo-img">
+                <img src="https://i.ibb.co/W44vB99T/Screenshot-2026-02-27-143550.png" alt="Vijayam Biocytes Logo" class="logo-img">
                 <span class="brand-name">Vijayam Biocytes</span>
             </div>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -50,7 +68,48 @@
         <div class="container">
             <div class="products-grid">
 
-                <!-- Product 0: ZinO max -->
+                <!-- Amino Acids - Parent Card -->
+                <div class="product-card aa-parent-card" onclick="openAAPanel()">
+                    <span class="aa-badge">6 Variants</span>
+                    <div class="product-image">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Amino Acids (Protein Hydrolysate)</h3>
+                    <p>FCO Approved — Liquid &amp; Powder variants from plant source</p>
+                    <button class="btn btn-small">Explore Range</button>
+                </div>
+
+                <!-- Kaptra -->
+                <div class="product-card" onclick="openModal('kaptra')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/SXLqMp5Z/Whats-App-Image-2026-06-26-at-18-21-04.jpg" alt="Kaptra">
+                    </div>
+                    <h3>Kaptra - Paddy Special Bio-Stimulant</h3>
+                    <p>Protein Hydrolysate 27% (Plant Source) Powder — FCO Approved</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <!-- Penta Pro -->
+                <div class="product-card" onclick="openModal('pentapro')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/R4sf2KGb/Whats-App-Image-2026-06-26-at-18-21-06.jpg" alt="Penta Pro">
+                    </div>
+                    <h3>Penta Pro - Tomato Special</h3>
+                    <p>Protein Hydrolysate 5% (Plant Source) Powder — FCO Approved</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <!-- Enpro -->
+                <div class="product-card" onclick="openModal('enpro')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/WNCqFhfJ/Whats-App-Image-2026-06-26-at-18-32-06.jpg" alt="Enpro">
+                    </div>
+                    <h3>Enpro - Green Gram Special</h3>
+                    <p>Protein Hydrolysate 16.9% (Plant Source) Liquid — FCO Approved</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <!-- ZinO max -->
                 <div class="product-card" onclick="openModal('product0')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/G3thrXpc/Whats-App-Image-2026-02-27-at-13-19-36.jpg" alt="ZinO max">
@@ -60,7 +119,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 1: Kusum -->
+                <!-- Kusum -->
                 <div class="product-card" onclick="openModal('product1')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/RGVQvFGT/Whats-App-Image-2026-02-28-at-17-43-25.jpg" alt="Kusum">
@@ -70,7 +129,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 2: Instagrow -->
+                <!-- Instagrow -->
                 <div class="product-card" onclick="openModal('product2')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/wnwbMJr/Whats-App-Image-2026-02-28-at-17-43-26.jpg" alt="Instagrow">
@@ -80,8 +139,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-               
-                <!-- Product 7: TetraNutri+ -->
+                <!-- TetraNutri+ -->
                 <div class="product-card" onclick="openModal('product7')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/PsVvVCWT/Whats-App-Image-2026-06-17-at-22-39-56.jpg" alt="TetraNutri+">
@@ -91,7 +149,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 8: VijayMin -->
+                <!-- VijayMin -->
                 <div class="product-card" onclick="openModal('product8')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/1fSWxyZf/Whats-App-Image-2026-06-17-at-22-39-52-2.jpg" alt="VijayMin">
@@ -101,7 +159,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 9: Reacher -->
+                <!-- Reacher -->
                 <div class="product-card" onclick="openModal('product9')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/hw5RHhH/Whats-App-Image-2026-06-17-at-22-39-52-1.jpg" alt="Reacher">
@@ -111,7 +169,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 10: TRIGROW -->
+                <!-- TRIGROW -->
                 <div class="product-card" onclick="openModal('product10')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/4RwcHBLq/Whats-App-Image-2026-06-17-at-22-39-52.jpg" alt="TRIGROW">
@@ -121,7 +179,7 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 11: BORAIN -->
+                <!-- BORAIN -->
                 <div class="product-card" onclick="openModal('product11')">
                     <div class="product-image-photo">
                         <img src="https://i.ibb.co/d01csLvT/Whats-App-Image-2026-06-21-at-13-57-51.jpg" alt="BORAIN">
@@ -131,69 +189,74 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
-                <!-- Product 12: PH 25% Liquid -->
-                <div class="product-card" onclick="openModal('product12')">
-                    <div class="product-image">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Protein Hydrolysate 25% (Plant Source) Liquid</h3>
-                    <p>FCO Approved — 25% Amino Acids, Liquid formulation</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-
-                <!-- Product 13: PH 16.9% Liquid -->
-                <div class="product-card" onclick="openModal('product13')">
-                    <div class="product-image">
-                        <i class="fas fa-flask"></i>
-                    </div>
-                    <h3>Protein Hydrolysate 16.9% (Plant Source) Liquid</h3>
-                    <p>FCO Approved — 16.9% Amino Acids, Liquid formulation</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-
-                <!-- Product 14: PH Amino Acids 10% Liquid -->
-                <div class="product-card" onclick="openModal('product14')">
-                    <div class="product-image">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Protein Hydrolysate (Amino Acids 10%) Plant Source Liquid</h3>
-                    <p>FCO Approved — 10% Amino Acids, Liquid formulation</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-
-                <!-- Product 15: PH Amino Acids 20% Liquid -->
-                <div class="product-card" onclick="openModal('product15')">
-                    <div class="product-image">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Protein Hydrolysate (Amino Acids 20%) Plant Source Liquid</h3>
-                    <p>FCO Approved — 20% Amino Acids, Liquid formulation</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-
-                <!-- Product 16: PH Amino Acids 5% Powder -->
-                <div class="product-card" onclick="openModal('product16')">
-                    <div class="product-image">
-                        <i class="fas fa-mortar-pestle"></i>
-                    </div>
-                    <h3>Protein Hydrolysate (Amino Acids 5%) Plant Source Powder</h3>
-                    <p>FCO Approved — 5% Amino Acids, Powder formulation</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-
-                <!-- Product 17: PH Amino Acids 27% Powder -->
-                <div class="product-card" onclick="openModal('product17')">
-                    <div class="product-image">
-                        <i class="fas fa-mortar-pestle"></i>
-                    </div>
-                    <h3>Protein Hydrolysate (Amino Acids 27%) Plant Source Powder</h3>
-                    <p>FCO Approved — 27% Amino Acids, Powder formulation</p>
-                    <button class="btn btn-small">View Details</button>
-                </div>
-
             </div>
         </div>
     </section>
+
+    <!-- Amino Acids Expandable Panel -->
+    <div class="aa-overlay" id="aaOverlay" onclick="closeAAOnBg(event)">
+        <div class="aa-panel" id="aaPanel">
+            <button class="close-panel" onclick="closeAAPanel()">&times;</button>
+            <h2><i class="fas fa-dna"></i> &nbsp;Amino Acids (Protein Hydrolysate)</h2>
+            <p style="text-align:center;color:#666;margin-bottom:1.5rem;">FCO Approved — Plant Source. Choose a category:</p>
+
+            <!-- Type selection -->
+            <div class="aa-type-grid" id="aaTypeGrid">
+                <div class="aa-type-btn" onclick="showAASub('liquid')">
+                    <i class="fas fa-tint"></i>
+                    <h3>Protein Hydrolysate Liquid</h3>
+                    <p style="font-size:0.85rem;margin:0.4rem 0 0;color:inherit;">4 variants available</p>
+                </div>
+                <div class="aa-type-btn" onclick="showAASub('powder')">
+                    <i class="fas fa-mortar-pestle"></i>
+                    <h3>Protein Hydrolysate Powder</h3>
+                    <p style="font-size:0.85rem;margin:0.4rem 0 0;color:inherit;">2 variants available</p>
+                </div>
+            </div>
+
+            <!-- Liquid sub-cards -->
+            <div class="aa-sub-grid" id="aaLiquid">
+                <button class="aa-back-btn" onclick="hideAASub()"><i class="fas fa-arrow-left"></i> Back</button>
+                <div style="grid-column:1/-1"><h3 style="color:var(--primary,#2c6e2c);margin:0 0 1rem;">Protein Hydrolysate — Liquid Variants</h3></div>
+                <div class="aa-sub-card" onclick="openModal('product12')">
+                    <h4>Protein Hydrolysate 25% (Plant Source) Liquid</h4>
+                    <p>FCO Approved — 25% Amino Acids, Liquid formulation</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+                <div class="aa-sub-card" onclick="openModal('product13')">
+                    <h4>Protein Hydrolysate 16.9% (Plant Source) Liquid</h4>
+                    <p>FCO Approved — 16.9% Amino Acids, Liquid formulation</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+                <div class="aa-sub-card" onclick="openModal('product14')">
+                    <h4>Protein Hydrolysate (Amino Acids 10%) Plant Source Liquid</h4>
+                    <p>FCO Approved — 10% Amino Acids, Liquid formulation</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+                <div class="aa-sub-card" onclick="openModal('product15')">
+                    <h4>Protein Hydrolysate (Amino Acids 20%) Plant Source Liquid</h4>
+                    <p>FCO Approved — 20% Amino Acids, Liquid formulation</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+            </div>
+
+            <!-- Powder sub-cards -->
+            <div class="aa-sub-grid" id="aaPowder">
+                <button class="aa-back-btn" onclick="hideAASub()"><i class="fas fa-arrow-left"></i> Back</button>
+                <div style="grid-column:1/-1"><h3 style="color:var(--primary,#2c6e2c);margin:0 0 1rem;">Protein Hydrolysate — Powder Variants</h3></div>
+                <div class="aa-sub-card" onclick="openModal('product16')">
+                    <h4>Protein Hydrolysate (Amino Acids 5%) Plant Source Powder</h4>
+                    <p>FCO Approved — 5% Amino Acids, Powder formulation</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+                <div class="aa-sub-card" onclick="openModal('product17')">
+                    <h4>Protein Hydrolysate (Amino Acids 27%) Plant Source Powder</h4>
+                    <p>FCO Approved — 27% Amino Acids, Powder formulation</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="production-capacity">
         <div class="container">
@@ -225,7 +288,7 @@
                     <ul>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
@@ -242,343 +305,243 @@
         </div>
     </footer>
 
-    <!-- Product Modals -->
+    <!-- ===== PRODUCT MODALS ===== -->
+
+    <!-- Kaptra -->
+    <div id="kaptra" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('kaptra')">&times;</span>
+            <h2>Kaptra — Paddy Special Bio-Stimulant</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
+            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only / केवल कृषि उपयोग के लिए</p>
+            <p><strong>Description:</strong> Kaptra is a premium FCO-approved bio-stimulant powder specially formulated for paddy cultivation. With 27% plant-source Protein Hydrolysate, it delivers a high concentration of free amino acids that directly fuel plant metabolism, boost stress tolerance, and maximize grain yield in paddy and other high-value crops including cotton.</p>
+            <p><strong>Composition:</strong> Protein Hydrolysate 27% (Plant Source) Powder</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Maximises tiller production and panicle formation in paddy</li>
+                <li>Enhances chlorophyll content for deep green, productive canopy</li>
+                <li>Improves stress tolerance — drought, waterlogging, heat</li>
+                <li>Boosts grain filling and increases 1000-grain weight</li>
+                <li>Reduces crop recovery time after pest/disease attack</li>
+                <li>Improves soil microbial activity and root biomass</li>
+                <li>Compatible with all pesticides and fertilizers</li>
+            </ul>
+            <p><strong>Dosage:</strong> 0.5–1 gm per liter for foliar spray; 2–3 kg per acre for soil application</p>
+            <p><strong>Suitable Crops:</strong> Paddy (Primary), Cotton, and all other field crops</p>
+        </div>
+    </div>
+
+    <!-- Penta Pro -->
+    <div id="pentapro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('pentapro')">&times;</span>
+            <h2>Penta Pro — Tomato Special</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
+            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only / केवल कृषि उपयोग के लिए</p>
+            <p><strong>Description:</strong> Penta Pro is a specially crafted FCO-approved powder bio-stimulant for tomato and vegetable crops, containing 5% plant-source Protein Hydrolysate. Its balanced amino acid profile supports steady vegetative growth, uniform flowering, and improved fruit quality — making it ideal for high-density vegetable cultivation and export-quality produce.</p>
+            <p><strong>Composition:</strong> Protein Hydrolysate 5% (Plant Source) Powder</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Promotes uniform flowering and high fruit set in tomato</li>
+                <li>Improves fruit size, colour, firmness, and shelf life</li>
+                <li>Enhances plant immunity against fungal diseases</li>
+                <li>Supports steady vegetative growth and canopy development</li>
+                <li>Improves soil health when used as soil application</li>
+                <li>Suitable for blending with NPK and micronutrient fertilizers</li>
+                <li>Ideal for organic and integrated farming programs</li>
+            </ul>
+            <p><strong>Dosage:</strong> 1–2 gm per liter for foliar spray; 2–4 kg per acre for soil incorporation</p>
+            <p><strong>Suitable Crops:</strong> Tomato (Primary), Sugarcane, Maize, Grapes, Watermelon, Banana, and all vegetable crops</p>
+        </div>
+    </div>
+
+    <!-- Enpro -->
+    <div id="enpro" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('enpro')">&times;</span>
+            <h2>Enpro — Green Gram Special</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
+            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only / केवल कृषि उपयोग के लिए</p>
+            <p><strong>Description:</strong> Enpro is a liquid bio-stimulant containing 16.9% plant-source Protein Hydrolysate, specially designed for Green Gram (Moong) and other pulse and vegetable crops. Its highly soluble liquid formula ensures rapid absorption and quick visible response — stronger plants, better pod set, and higher marketable yield.</p>
+            <p><strong>Composition:</strong> Protein Hydrolysate 16.9% (Plant Source) Liquid</p>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Promotes vigorous vegetative growth and node development in pulses</li>
+                <li>Enhances nitrogen fixation efficiency in leguminous crops</li>
+                <li>Improves pod set and seed filling in green gram and other pulses</li>
+                <li>Reduces flower and pod drop under stress conditions</li>
+                <li>Boosts overall plant immunity and resilience</li>
+                <li>Fast-acting liquid formula for quick crop response</li>
+                <li>Improves produce quality and market grade</li>
+            </ul>
+            <p><strong>Dosage:</strong> 3–5 ml per liter for foliar spray; 5–7 ml per liter for soil drenching</p>
+            <p><strong>Suitable Crops:</strong> Green Gram (Primary), all Pulses, Vegetables, Fruits, and Horticultural crops</p>
+        </div>
+    </div>
+
+    <!-- ZinO max -->
     <div id="product0" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product0')">&times;</span>
             <h2>ZinO max – Zinc Oxide Suspension Concentrate (39.5% Zn)</h2>
-            <p><strong>Description:</strong> ZinO max is a high-quality Zinc Oxide Suspension Concentrate containing
-                39.5% elemental Zinc (Zn). It is specially formulated to quickly correct zinc deficiency in crops and
-                improve overall plant growth and yield.</p>
-            <p><strong>Product Specifications:</strong></p>
-            <ul>
-                <li>Composition: Zinc Oxide Suspension Concentrate</li>
-                <li>Zinc Content: 39.5% Zn</li>
-                <li>Application Method: Foliar Spray (suitable for all crops)</li>
-                <li>Recommended Dosage: 120 ml per acre</li>
-                <li>Pack Size: 120 ml</li>
-            </ul>
+            <p><strong>Description:</strong> ZinO max is a high-quality Zinc Oxide Suspension Concentrate containing 39.5% elemental Zinc (Zn), specially formulated to quickly correct zinc deficiency and improve overall plant growth and yield.</p>
+            <p><strong>Composition:</strong> Zinc Oxide Suspension Concentrate — Zinc Content: 39.5% Zn | Pack: 120 ml</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
-                <li><strong>Rapidly Corrects Zinc Deficiency:</strong> Effectively treats zinc deficiency symptoms such as yellowing leaves and stunted growth</li>
-                <li><strong>Enhances Nutrient Uptake (N &amp; P):</strong> Improves absorption of essential nutrients like Nitrogen and Phosphorus</li>
-                <li><strong>Promotes Strong Root Development:</strong> Encourages deeper and healthier root systems</li>
-                <li><strong>Boosts Flowering &amp; Fruiting:</strong> Supports improved flower formation and fruit development</li>
-                <li><strong>Improves Photosynthesis:</strong> Maintains healthy green leaves and enhances energy production</li>
-                <li><strong>Reduces Biotic &amp; Abiotic Stress:</strong> Helps crops tolerate pest attacks, diseases, and environmental stress</li>
-                <li><strong>Increases Yield &amp; Crop Quality:</strong> Leads to higher productivity and better market-quality produce</li>
+                <li>Rapidly corrects zinc deficiency — yellowing leaves, stunted growth</li>
+                <li>Enhances nutrient uptake of N &amp; P</li>
+                <li>Promotes strong root development</li>
+                <li>Boosts flowering &amp; fruiting</li>
+                <li>Improves photosynthesis and plant energy production</li>
+                <li>Reduces biotic &amp; abiotic stress</li>
+                <li>Increases yield &amp; crop quality</li>
             </ul>
-            <p><strong>Suitable Crops:</strong> Cereals (Wheat, Rice, Maize), Pulses, Oilseeds, Fruits &amp; Vegetables, Cotton, Plantation Crops, Horticultural Crops</p>
-            <p><strong>Application Instructions:</strong> Mix 120 ml per acre in the recommended quantity of water. Spray evenly on crop foliage during early morning or late evening. Avoid spraying during extreme heat or rainfall.</p>
+            <p><strong>Dosage:</strong> 120 ml per acre | Foliar spray — early morning or late evening</p>
+            <p><strong>Suitable Crops:</strong> Cereals, Pulses, Oilseeds, Fruits &amp; Vegetables, Cotton, Plantation &amp; Horticultural Crops</p>
         </div>
     </div>
 
+    <!-- Kusum -->
     <div id="product1" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product1')">&times;</span>
             <h2>Kusum - Boron Ethanolamine</h2>
-            <p><strong>Description:</strong> Kusum is a concentrated liquid boron fertilizer made with ethanolamine to help plants absorb boron better. Boron supports cell wall development, metabolism, and overall plant health.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Boron Ethanolamine as Boron: 10%</li>
-            </ul>
+            <p><strong>Description:</strong> Concentrated liquid boron fertilizer with ethanolamine for enhanced plant absorption. Supports cell wall development, metabolism, and overall plant health.</p>
+            <p><strong>Composition:</strong> Boron Ethanolamine as Boron: 10% | Pack: 120 ml | Shelf Life: 2 Years</p>
             <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Supports cell wall development and metabolism</li>
                 <li>Helps in flowering and fruiting</li>
-                <li>Improves the use of other fertilizers by boosting nutrient uptake</li>
-                <li>Helps maintain hormonal balance for better plant development and yield</li>
-                <li>Enhances overall plant health</li>
+                <li>Boosts nutrient uptake efficiency</li>
+                <li>Maintains hormonal balance for better yield</li>
             </ul>
-            <p><strong>Recommended Crops:</strong> Beans, Pulses, Chilli, Tomato, Cotton, Paddy, Redgram, and all Vegetable crops</p>
-            <p><strong>Pack Size:</strong> 120 ml &nbsp;|&nbsp; <strong>Shelf Life:</strong> 2 Years from Date of Manufacturing</p>
+            <p><strong>Suitable Crops:</strong> Beans, Pulses, Chilli, Tomato, Cotton, Paddy, Redgram, all Vegetables</p>
         </div>
     </div>
 
+    <!-- Instagrow -->
     <div id="product2" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product2')">&times;</span>
             <h2>Instagrow - Liquid Fermented Organic Manure</h2>
-            <p><strong>Description:</strong> Instagrow is a fermented liquid organic fertilizer created from organic liquid material, activated by Mountain Microorganisms like yeast, fungi, and bacteria using advanced fermentation technology.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Total Organic Carbon (by weight, dry basis): 14%</li>
-                <li>Total N, P₂O₅, and K₂O Nutrients (Minimum, dry basis): 1.2%</li>
-                <li>Total Moisture Content (by weight): 90-97%</li>
-            </ul>
-            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li>Provides plant-essential nutrients</li>
-                <li>Rich in vitamins and organic acids</li>
-                <li>Contains plant growth-promoting compounds</li>
-                <li>Improves soil health and microbial activity</li>
-                <li>Enhances nutrient availability</li>
-                <li>Promotes overall plant growth and development</li>
-            </ul>
-            <p><strong>Dosage:</strong> 2.5 to 3 ml in 1 Liter of water</p>
-            <p><strong>Recommended Crops:</strong> Paddy, Chilli, Tomato, Cotton, Redgram, and all Vegetable crops</p>
-            <p><strong>Pack Size:</strong> 120 ml &nbsp;|&nbsp; <strong>Shelf Life:</strong> 2 Years from Date of Manufacturing</p>
+            <p><strong>Description:</strong> Fermented liquid organic fertilizer activated by Mountain Microorganisms (yeast, fungi, bacteria) transforming organic matter into plant-essential nutrients, vitamins, and growth promoters.</p>
+            <p><strong>Composition:</strong> Total Organic Carbon: 14% | N+P₂O₅+K₂O: 1.2% min | Moisture: 90-97% | Pack: 120 ml</p>
+            <p><strong>Benefits:</strong> Plant-essential nutrients, improves soil health &amp; microbial activity, promotes growth</p>
+            <p><strong>Dosage:</strong> 2.5–3 ml in 1 liter of water</p>
+            <p><strong>Suitable Crops:</strong> Paddy, Chilli, Tomato, Cotton, Redgram, all Vegetable crops</p>
         </div>
     </div>
 
-    <div id="product3" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('product3')">&times;</span>
-            <h2>Protein Hydrolysate Powder (100% Pure)</h2>
-            <p><strong>Description:</strong> A mixture of amino acids extracted from natural sources through comprehensive hydrolysis, filtration, pH adjustments, purification, and de-colourization processes. Enhances productivity of all crops through foliar spray and drenching application.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Total Dissolved Solids: 40-42%</li>
-                <li>pH: 3.5-4.5</li>
-                <li>Total Organic Carbon: 6-7%</li>
-                <li>Total Nitrogen: 6.5-7.0%</li>
-            </ul>
-            <p><strong>Usage:</strong> Dissolve 5-6 ml in 1 liter of water and apply through spraying or drenching at initial growth, flowering, and fruiting stages.</p>
-            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li>Enhances chlorophyll synthesis</li>
-                <li>Makes plants stress resistant</li>
-                <li>Promotes flowering &amp; fruit formation</li>
-                <li>Helps promoting soil micro flora</li>
-                <li>Maintains and improves protein synthesis</li>
-                <li>Enhances photosynthesis making plant lush green</li>
-            </ul>
-            <p><strong>Compatibility:</strong> Compatible with all types of insecticides, herbicides, and fungicides.</p>
-        </div>
-    </div>
-
-    <div id="product4" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('product4')">&times;</span>
-            <h2>Liquid Protein Hydrolysate (50% Protein)</h2>
-            <p><strong>Description:</strong> Liquid formulation of amino acid mixture for easy application and rapid absorption by plants.</p>
-            <p><strong>Composition:</strong> 50% Protein concentration with balanced amino acid profile</p>
-            <p><strong>Usage:</strong> Apply through foliar spray or drip irrigation. Dissolve 6-7 ml in 1 liter of water.</p>
-            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li>Maintains and improves protein synthesis</li>
-                <li>Controls stress before and after shock</li>
-                <li>Enhances photosynthesis</li>
-                <li>Supports stomatal regulation</li>
-                <li>Supports pollination and fruit formation</li>
-                <li>Strengthens cell walls</li>
-                <li>Increases resistance to unfavorable climatic conditions</li>
-                <li>Supports biomass production and yield</li>
-            </ul>
-        </div>
-    </div>
-
-    <div id="product5" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('product5')">&times;</span>
-            <h2>NATCA Powder (99% Pure)</h2>
-            <p><strong>Description:</strong> N-Acetyl Thiazolidine-4-Carboxylic Acid, a plant growth promoter derived from sulphur-rich amino acid L-Cysteine. Serves as an effective plant growth regulator.</p>
-            <p><strong>Composition:</strong> 99% Pure NATCA</p>
-            <p><strong>Usage:</strong> Dissolve at 500-1000 ppm and apply through foliar spray or drenching at critical growth stages.</p>
-            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li>Enhances protein synthesis</li>
-                <li>Controls stress and promotes fast recovery</li>
-                <li>Enhances photosynthesis</li>
-                <li>Supports pollination and fruit formation</li>
-                <li>Improves soil micro flora</li>
-                <li>Enhances plant's hydric balance</li>
-                <li>Increases resistance to unfavorable conditions</li>
-                <li>Supports disease suppression</li>
-            </ul>
-            <p><strong>Application Stages:</strong> Initial growth, flowering, and fruiting stages</p>
-        </div>
-    </div>
-
-    <div id="product6" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('product6')">&times;</span>
-            <h2>Amino Acid + NATCA Combo</h2>
-            <p><strong>Description:</strong> A powerful combination of Protein Hydrolysate (Amino Acid Mixture) and NATCA for synergistic plant growth promotion and stress management.</p>
-            <p><strong>Benefits:</strong></p>
-            <ul>
-                <li>Combined action of amino acids and NATCA for enhanced results</li>
-                <li>Improves overall crop productivity and quality</li>
-                <li>Supports stress recovery and resistance</li>
-                <li>Promotes flowering, fruiting, and yield</li>
-                <li>Improves soil micro flora</li>
-            </ul>
-            <p><strong>Application:</strong> Foliar spray or drenching at critical crop growth stages</p>
-            <p><strong>Compatibility:</strong> Compatible with all types of insecticides, herbicides, and fungicides.</p>
-        </div>
-    </div>
-
+    <!-- TetraNutri+ -->
     <div id="product7" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product7')">&times;</span>
             <h2>TetraNutri+ (Formulation-4)</h2>
-            <p><strong>Description:</strong> TetraNutri+ is an FCO Approved micronutrient mixture (Formulation-4) in powder/granular form, specially developed to correct specific nutrient deficiencies across a wide range of crops. Meets all regulatory standard benchmarks under the Fertilizer Control Order.</p>
-            <p><strong>Product Type:</strong> Powder/Granular Fertilizer &nbsp;|&nbsp; <strong>Pack Size:</strong> 250 gm pouch</p>
-            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only / केवल कृषि उपयोग के लिए</p>
-            <p><strong>Key Benefits:</strong></p>
+            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only | Pack: 250 gm pouch</p>
+            <p><strong>Description:</strong> FCO Approved micronutrient mixture (Formulation-4) in powder/granular form, correcting specific nutrient deficiencies across a wide range of crops.</p>
+            <p><strong>Benefits:</strong></p>
             <ul>
-                <li>Corrects specific micronutrient deficiencies effectively</li>
+                <li>Corrects specific micronutrient deficiencies</li>
                 <li>Improves overall plant health and yield</li>
-                <li>Meets regulatory standards for safe agricultural use</li>
-                <li>Suitable for a wide variety of crops</li>
+                <li>Meets all regulatory standards</li>
             </ul>
-            <p><strong>Suitable Crops:</strong> Cash crops, Fruits (Pomegranates, Berries, etc.), Vegetables, Field crops</p>
+            <p><strong>Suitable Crops:</strong> Cash crops, Fruits, Vegetables, Field crops</p>
         </div>
     </div>
 
+    <!-- VijayMin -->
     <div id="product8" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product8')">&times;</span>
             <h2>VijayMin - Ortho Silicic Acid</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Description:</strong> VijayMin contains Ortho Silicic Acid, a highly bioavailable form of silicon for plants. Silicon strengthens plant cell walls, enhances resistance to pests and diseases, and improves drought tolerance. FCO Approved for safe and effective agricultural use.</p>
-            <p><strong>Product Type:</strong> Liquid Fertilizer &nbsp;|&nbsp; <strong>Approval:</strong> FCO Approved</p>
-            <p><strong>Key Benefits:</strong></p>
-            <ul>
-                <li>Strengthens plant cell walls for better structural integrity</li>
-                <li>Enhances resistance to pests and diseases</li>
-                <li>Improves drought tolerance and stress resistance</li>
-                <li>Reduces lodging (falling over) in crops like paddy</li>
-                <li>Optimizes overall nutrient uptake</li>
-            </ul>
-            <p><strong>Suitable Crops:</strong> All crops, especially recommended for Paddy and cereals prone to lodging</p>
+            <p><strong>Approval:</strong> FCO Approved | <strong>Type:</strong> Liquid Fertilizer</p>
+            <p><strong>Description:</strong> Contains Ortho Silicic Acid — highly bioavailable silicon that strengthens plant cell walls, enhances pest &amp; disease resistance, and improves drought tolerance.</p>
+            <p><strong>Benefits:</strong> Strengthens cell walls, reduces lodging in paddy, enhances pest resistance, optimizes nutrient uptake</p>
+            <p><strong>Suitable Crops:</strong> All crops, especially Paddy and cereals prone to lodging</p>
         </div>
     </div>
 
+    <!-- Reacher -->
     <div id="product9" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product9')">&times;</span>
             <h2>Reacher - Liquid Fermented Organic Manure</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Description:</strong> Reacher is a liquid fermented organic manure and bio-stimulant, rich in organic carbon, beneficial microbial metabolites, enzymes, and naturally occurring growth promoters. Features an integrated measuring cap for precise and convenient dosage.</p>
-            <p><strong>Product Type:</strong> Liquid Fermented Organic Manure / Bio-stimulant</p>
-            <p><strong>Key Benefits:</strong></p>
-            <ul>
-                <li>Rich in organic carbon and beneficial microbial metabolites</li>
-                <li>Contains natural enzymes and growth-promoting compounds</li>
-                <li>Boosts soil microbial activity for healthier soil</li>
-                <li>Improves root development and plant vigour</li>
-                <li>Enhances crop quality and yield</li>
-            </ul>
+            <p><strong>Type:</strong> Liquid Fermented Organic Manure / Bio-stimulant</p>
+            <p><strong>Description:</strong> Rich in organic carbon, beneficial microbial metabolites, enzymes, and natural growth promoters. Features an integrated measuring cap for precise dosage.</p>
+            <p><strong>Benefits:</strong> Boosts soil microbial activity, improves root development, enhances crop quality and yield</p>
             <p><strong>Application:</strong> Foliar spray or soil application</p>
             <p><strong>Suitable Crops:</strong> Fruits, vegetables, and horticultural crops</p>
         </div>
     </div>
 
+    <!-- TRIGROW -->
     <div id="product10" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product10')">&times;</span>
             <h2>TRIGROW - Liquid NPK 8:8:8</h2>
-            <p><strong>Description:</strong> TRIGROW is a balanced liquid NPK fertilizer with an equal ratio of 8:8:8, providing Nitrogen (N), Phosphorus (P), and Potassium (K) in perfect balance. Suitable for all crops at any growth stage.</p>
-            <p><strong>Product Type:</strong> Liquid NPK Fertilizer</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Nitrogen (N): 8%</li>
-                <li>Phosphorus (P₂O₅): 8%</li>
-                <li>Potassium (K₂O): 8%</li>
-            </ul>
-            <p><strong>Key Benefits:</strong></p>
+            <p><strong>Type:</strong> Liquid NPK Fertilizer | <strong>For All Crops</strong></p>
+            <p><strong>Composition:</strong> Nitrogen (N): 8% | Phosphorus (P₂O₅): 8% | Potassium (K₂O): 8%</p>
+            <p><strong>Benefits:</strong></p>
             <ul>
                 <li>Balanced nutrition for general vegetative growth</li>
                 <li>Supports early root development</li>
                 <li>Promotes uniform crop establishment</li>
-                <li>Ideal for initial and mid-growth stages of any plant lifecycle</li>
-                <li>Suitable for all crops</li>
+                <li>Ideal for initial and mid-growth stages</li>
             </ul>
-            <p><strong>Suitable Crops:</strong> All crops</p>
         </div>
     </div>
 
+    <!-- BORAIN -->
     <div id="product11" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product11')">&times;</span>
             <h2>BORAIN – Boron 20% (Di Sodium Octaborate Tetrahydrate)</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Description:</strong> BORAIN is a premium granular boron micronutrient fertilizer containing 20% Boron derived from Di Sodium Octaborate Tetrahydrate. Boron is one of the most critical micronutrients for plant reproductive growth — it directly influences pollen germination, cell wall formation, sugar transport, and fruit setting. BORAIN ensures rapid correction of boron deficiency and is suitable for all crops.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Active Ingredient: Di Sodium Octaborate Tetrahydrate</li>
-                <li>Boron (B) Content: 20%</li>
-                <li>Form: Granular / Powder</li>
-            </ul>
-            <p><strong>Pack Size:</strong> 250 gm &nbsp;|&nbsp; <strong>Use:</strong> For Agriculture Use Only / केवल कृषि उपयोग के लिए</p>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Pack:</strong> 250 gm | FCO Approved</p>
+            <p><strong>Composition:</strong> Di Sodium Octaborate Tetrahydrate | Boron (B): 20% | Form: Granular/Powder</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
-                <li><strong>Corrects Boron Deficiency:</strong> Rapidly fixes boron-deficient conditions that cause hollow stem, cracked fruits, and tip burn</li>
-                <li><strong>Improves Pollination &amp; Fruit Set:</strong> Boron is essential for pollen tube growth and successful fertilization</li>
-                <li><strong>Strengthens Cell Walls:</strong> Supports structural integrity and rigidity of plant cells</li>
-                <li><strong>Enhances Sugar Transport:</strong> Facilitates the movement of sugars from leaves to fruits and roots</li>
-                <li><strong>Boosts Flowering:</strong> Promotes abundant and uniform flower formation</li>
-                <li><strong>Improves Crop Quality &amp; Shelf Life:</strong> Produces firmer, better-coloured fruits with longer post-harvest life</li>
-                <li><strong>Increases Yield:</strong> Balanced boron nutrition leads to higher productivity across all crop types</li>
+                <li>Rapidly corrects boron deficiency — hollow stem, cracked fruits, tip burn</li>
+                <li>Improves pollination &amp; fruit set</li>
+                <li>Strengthens cell walls and enhances sugar transport</li>
+                <li>Boosts flowering and improves crop quality &amp; shelf life</li>
             </ul>
-            <p><strong>Suitable Crops:</strong></p>
-            <ul>
-                <li>Fruits: Grapes, Banana, Watermelon, Apple, Mango, Pomegranate</li>
-                <li>Vegetables: Tomato, Chilli, Brinjal, Cauliflower, Cabbage</li>
-                <li>Cash Crops: Cotton, Sugarcane, Groundnut</li>
-                <li>Cereals &amp; Pulses: Paddy, Wheat, Soybean, Redgram</li>
-                <li>Flowers &amp; Horticultural Crops</li>
-            </ul>
-            <p><strong>Dosage &amp; Application:</strong></p>
-            <ul>
-                <li><strong>Foliar Spray:</strong> Dissolve 1–2 gm per liter of water and spray evenly on foliage</li>
-                <li><strong>Soil Application:</strong> Mix 2–3 kg per acre with sand or fertilizer and apply uniformly</li>
-                <li>Best applied at flowering and early fruit development stages</li>
-                <li>Avoid application during peak heat hours; spray in early morning or late evening</li>
-            </ul>
-            <p><strong>Compatibility:</strong> Compatible with most pesticides and fertilizers. Do a jar test before mixing with unknown products.</p>
+            <p><strong>Dosage:</strong> Foliar: 1–2 gm/liter | Soil: 2–3 kg/acre</p>
+            <p><strong>Suitable Crops:</strong> Fruits, Vegetables, Cotton, Sugarcane, Groundnut, Cereals, Pulses, Flowers</p>
         </div>
     </div>
 
-    <!-- FCO Amino Acid Product Modals -->
-
+    <!-- Protein Hydrolysate 25% Liquid -->
     <div id="product12" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product12')">&times;</span>
             <h2>Protein Hydrolysate 25% (Plant Source) — Liquid</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Approval:</strong> FCO Approved (Fertilizer Control Order) — For Agriculture Use Only</p>
-            <p><strong>Description:</strong> A high-concentration liquid protein hydrolysate derived from plant sources, containing 25% amino acids. Produced through enzymatic and acid hydrolysis of plant proteins, this formulation delivers readily absorbable free amino acids directly to crops via foliar spray or drip irrigation, promoting vigorous growth, stress tolerance, and higher yields.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Total Protein Hydrolysate (as Amino Acids): 25% (w/v)</li>
-                <li>Source: Plant-based protein hydrolysis</li>
-                <li>Form: Liquid</li>
-            </ul>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Approval:</strong> FCO Approved</p>
+            <p><strong>Description:</strong> High-concentration liquid protein hydrolysate from plant sources with 25% amino acids. Delivers readily absorbable free amino acids via foliar spray or drip irrigation for vigorous growth, stress tolerance, and higher yields.</p>
+            <p><strong>Composition:</strong> Total Protein Hydrolysate (as Amino Acids): 25% (w/v) | Source: Plant | Form: Liquid</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
-                <li>High amino acid concentration for rapid plant uptake</li>
+                <li>Rapid plant uptake due to high amino acid concentration</li>
                 <li>Stimulates enzyme activity and protein synthesis</li>
-                <li>Enhances chlorophyll production for lush, green canopy</li>
-                <li>Improves stress tolerance (drought, heat, salinity)</li>
+                <li>Enhances chlorophyll production for lush green canopy</li>
+                <li>Improves stress tolerance — drought, heat, salinity</li>
                 <li>Promotes flowering, fruit set, and uniform ripening</li>
                 <li>Boosts soil microbial activity and root development</li>
-                <li>Increases crop yield and post-harvest quality</li>
             </ul>
-            <p><strong>Dosage:</strong> 2–3 ml per liter of water for foliar spray; 3–5 ml per liter for drip/drenching</p>
-            <p><strong>Application Stages:</strong> Vegetative growth, pre-flowering, flowering, and fruit development stages</p>
-            <p><strong>Suitable Crops:</strong> All field crops, vegetables, fruits, plantation crops, and horticulture</p>
-            <p><strong>Compatibility:</strong> Compatible with most fertilizers and pesticides. Conduct a jar test before tank mixing.</p>
+            <p><strong>Dosage:</strong> Foliar: 2–3 ml/liter | Drip/Drenching: 3–5 ml/liter</p>
+            <p><strong>Suitable Crops:</strong> All field crops, vegetables, fruits, plantation &amp; horticultural crops</p>
         </div>
     </div>
 
+    <!-- Protein Hydrolysate 16.9% Liquid -->
     <div id="product13" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product13')">&times;</span>
             <h2>Protein Hydrolysate 16.9% (Plant Source) — Liquid</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only</p>
-            <p><strong>Description:</strong> A plant-sourced liquid protein hydrolysate with 16.9% amino acid content. This mid-strength formulation is ideal for routine crop nutrition programs and is especially effective when applied at critical growth stages to enhance plant metabolism and resilience.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Total Protein Hydrolysate (as Amino Acids): 16.9% (w/v)</li>
-                <li>Source: Plant-based protein hydrolysis</li>
-                <li>Form: Liquid</li>
-            </ul>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Approval:</strong> FCO Approved</p>
+            <p><strong>Description:</strong> Mid-strength plant-sourced liquid protein hydrolysate with 16.9% amino acids. Ideal for routine crop nutrition programs at critical growth stages to enhance plant metabolism and resilience.</p>
+            <p><strong>Composition:</strong> Total Protein Hydrolysate (as Amino Acids): 16.9% (w/v) | Source: Plant | Form: Liquid</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
-                <li>Provides balanced amino acid nutrition for overall plant health</li>
                 <li>Enhances photosynthesis and nutrient use efficiency</li>
                 <li>Supports stomatal regulation and water use efficiency</li>
                 <li>Promotes cell division and tissue development</li>
@@ -586,130 +549,133 @@
                 <li>Reduces recovery time after pest or environmental stress</li>
                 <li>Improves fruit size, color, and marketable yield</li>
             </ul>
-            <p><strong>Dosage:</strong> 3–5 ml per liter of water for foliar spray; 5–7 ml per liter for soil drenching</p>
-            <p><strong>Application Stages:</strong> Early vegetative stage, tillering, pre-flowering, and grain/fruit filling</p>
-            <p><strong>Suitable Crops:</strong> Paddy, wheat, maize, cotton, sugarcane, vegetables, and all horticultural crops</p>
-            <p><strong>Compatibility:</strong> Compatible with most water-soluble fertilizers and crop protection products.</p>
+            <p><strong>Dosage:</strong> Foliar: 3–5 ml/liter | Soil drenching: 5–7 ml/liter</p>
+            <p><strong>Suitable Crops:</strong> Paddy, Wheat, Maize, Cotton, Sugarcane, Vegetables, and all Horticultural crops</p>
         </div>
     </div>
 
+    <!-- Protein Hydrolysate Amino Acids 10% Liquid -->
     <div id="product14" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product14')">&times;</span>
             <h2>Protein Hydrolysate (Amino Acids 10%) Plant Source — Liquid</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only</p>
-            <p><strong>Description:</strong> A liquid protein hydrolysate containing 10% amino acids from plant sources. This entry-level concentration is well-suited for regular maintenance sprays and soil conditioning programs, delivering consistent nutritional support across all crop growth phases.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Amino Acids (as Protein Hydrolysate): 10% (w/v)</li>
-                <li>Source: Plant-based</li>
-                <li>Form: Liquid</li>
-            </ul>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Approval:</strong> FCO Approved</p>
+            <p><strong>Description:</strong> Liquid protein hydrolysate with 10% amino acids from plant sources. Suitable for regular maintenance sprays and soil conditioning programs, delivering consistent nutritional support across all crop growth phases.</p>
+            <p><strong>Composition:</strong> Amino Acids (as Protein Hydrolysate): 10% (w/v) | Source: Plant | Form: Liquid</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
                 <li>Steady supply of free amino acids for continuous plant nutrition</li>
                 <li>Improves soil organic matter and microbial diversity</li>
-                <li>Chelates micronutrients for better availability to plants</li>
+                <li>Chelates micronutrients for better plant availability</li>
                 <li>Enhances germination rate and seedling vigour</li>
                 <li>Promotes uniform crop stand establishment</li>
-                <li>Cost-effective solution for large-scale farming programs</li>
+                <li>Cost-effective for large-scale farming programs</li>
             </ul>
-            <p><strong>Dosage:</strong> 5–7 ml per liter for foliar spray; 7–10 ml per liter for soil application</p>
-            <p><strong>Application Stages:</strong> Seed treatment, nursery, transplanting, and all vegetative stages</p>
-            <p><strong>Suitable Crops:</strong> All crops including rice, vegetables, pulses, oilseeds, and fruit orchards</p>
+            <p><strong>Dosage:</strong> Foliar: 5–7 ml/liter | Soil application: 7–10 ml/liter</p>
+            <p><strong>Suitable Crops:</strong> All crops — Rice, Vegetables, Pulses, Oilseeds, Fruit orchards</p>
         </div>
     </div>
 
+    <!-- Protein Hydrolysate Amino Acids 20% Liquid -->
     <div id="product15" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product15')">&times;</span>
             <h2>Protein Hydrolysate (Amino Acids 20%) Plant Source — Liquid</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only</p>
-            <p><strong>Description:</strong> A high-efficacy liquid formulation with 20% amino acids derived from plant protein hydrolysis. Provides superior crop nutrition at key growth stages, supporting strong vegetative development and reproductive success. Particularly effective for high-value crops requiring premium nutritional inputs.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Amino Acids (as Protein Hydrolysate): 20% (w/v)</li>
-                <li>Source: Plant-based</li>
-                <li>Form: Liquid</li>
-            </ul>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Approval:</strong> FCO Approved</p>
+            <p><strong>Description:</strong> High-efficacy liquid formulation with 20% amino acids from plant protein hydrolysis. Superior crop nutrition at key growth stages — especially effective for high-value crops requiring premium nutritional inputs.</p>
+            <p><strong>Composition:</strong> Amino Acids (as Protein Hydrolysate): 20% (w/v) | Source: Plant | Form: Liquid</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
                 <li>High amino acid load for rapid and visible crop response</li>
                 <li>Accelerates recovery from abiotic and biotic stress</li>
                 <li>Enhances pollen viability and fertilization success</li>
-                <li>Improves sugar accumulation in fruits for better taste and sweetness</li>
+                <li>Improves sugar accumulation in fruits for better taste</li>
                 <li>Strengthens plant immunity against fungal and bacterial pathogens</li>
-                <li>Promotes dense root networks for improved moisture and nutrient uptake</li>
+                <li>Promotes dense root networks for improved moisture uptake</li>
                 <li>Extends shelf life and improves export quality of produce</li>
             </ul>
-            <p><strong>Dosage:</strong> 2–4 ml per liter for foliar spray; 4–6 ml per liter for drip irrigation</p>
-            <p><strong>Application Stages:</strong> Pre-flowering, flowering, fruit set, and bulking stages</p>
-            <p><strong>Suitable Crops:</strong> Grapes, mango, pomegranate, chilli, tomato, cotton, paddy, wheat, and all high-value crops</p>
+            <p><strong>Dosage:</strong> Foliar: 2–4 ml/liter | Drip irrigation: 4–6 ml/liter</p>
+            <p><strong>Suitable Crops:</strong> Grapes, Mango, Pomegranate, Chilli, Tomato, Cotton, Paddy, Wheat, all high-value crops</p>
         </div>
     </div>
 
+    <!-- Protein Hydrolysate Amino Acids 5% Powder -->
     <div id="product16" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product16')">&times;</span>
             <h2>Protein Hydrolysate (Amino Acids 5%) Plant Source — Powder</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only</p>
-            <p><strong>Description:</strong> A dry powder protein hydrolysate with 5% amino acid content from plant sources. The powder form offers excellent stability, long shelf life, and ease of handling. Ideal for blending with other fertilizers or direct soil incorporation to enhance soil organic matter and crop nutrition.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Amino Acids (as Protein Hydrolysate): 5% (w/w)</li>
-                <li>Source: Plant-based</li>
-                <li>Form: Powder / Granular</li>
-            </ul>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Approval:</strong> FCO Approved</p>
+            <p><strong>Description:</strong> Dry powder protein hydrolysate with 5% amino acid content from plant sources. Excellent stability, long shelf life, easy handling — ideal for blending with other fertilizers or direct soil incorporation.</p>
+            <p><strong>Composition:</strong> Amino Acids (as Protein Hydrolysate): 5% (w/w) | Source: Plant | Form: Powder</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
                 <li>Easy to blend with NPK and micronutrient fertilizers</li>
-                <li>Slow-release amino acid nutrition for sustained crop benefit</li>
+                <li>Slow-release amino acid nutrition for sustained benefit</li>
                 <li>Improves soil structure, aeration, and water retention</li>
                 <li>Enhances soil microbial biomass and enzyme activity</li>
                 <li>Suitable for organic and integrated farming systems</li>
                 <li>Long shelf life with easy storage and transport</li>
             </ul>
-            <p><strong>Dosage:</strong> 2–4 kg per acre for soil application; 1–2 gm per liter for foliar use after dissolving</p>
-            <p><strong>Application Method:</strong> Mix with soil/compost before sowing or transplanting; can also be top-dressed</p>
+            <p><strong>Dosage:</strong> Soil: 2–4 kg/acre | Foliar: 1–2 gm/liter after dissolving</p>
             <p><strong>Suitable Crops:</strong> All field crops, vegetables, orchards, and nursery plants</p>
         </div>
     </div>
 
+    <!-- Protein Hydrolysate Amino Acids 27% Powder -->
     <div id="product17" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('product17')">&times;</span>
             <h2>Protein Hydrolysate (Amino Acids 27%) Plant Source — Powder</h2>
-            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd.</p>
-            <p><strong>Approval:</strong> FCO Approved — For Agriculture Use Only</p>
-            <p><strong>Description:</strong> The premium powder formulation in our FCO-approved amino acid range, containing 27% amino acids from plant-sourced protein hydrolysis. This high-concentration powder is the most potent dry amino acid product in our lineup, delivering exceptional results for intensive cropping systems and high-value produce.</p>
-            <p><strong>Composition:</strong></p>
-            <ul>
-                <li>Amino Acids (as Protein Hydrolysate): 27% (w/w)</li>
-                <li>Source: Plant-based</li>
-                <li>Form: Powder</li>
-            </ul>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd. | <strong>Approval:</strong> FCO Approved</p>
+            <p><strong>Description:</strong> Premium powder formulation with 27% amino acids — the highest concentration in our FCO-approved powder range. Exceptional results for intensive cropping systems and high-value produce.</p>
+            <p><strong>Composition:</strong> Amino Acids (as Protein Hydrolysate): 27% (w/w) | Source: Plant | Form: Powder</p>
             <p><strong>Key Benefits:</strong></p>
             <ul>
                 <li>Highest amino acid concentration in powder form for maximum efficacy</li>
                 <li>Rapidly boosts plant metabolism and enzyme production</li>
-                <li>Exceptional stress recovery — drought, salinity, frost, and chemical stress</li>
+                <li>Exceptional stress recovery — drought, salinity, frost, chemical stress</li>
                 <li>Promotes prolific flowering and high fruit retention</li>
                 <li>Enhances nutrient use efficiency, reducing overall fertilizer cost</li>
                 <li>Improves soil health with sustained organic carbon contribution</li>
-                <li>Increases crop uniformity and harvesting ease</li>
-                <li>Improves produce quality: better color, taste, size, and shelf life</li>
+                <li>Improves produce quality: color, taste, size, and shelf life</li>
             </ul>
-            <p><strong>Dosage:</strong> 1–2 kg per acre for soil application; 0.5–1 gm per liter for foliar spray after dissolving in water</p>
-            <p><strong>Application Stages:</strong> Pre-sowing soil treatment, active vegetative growth, pre-flowering, and fruit development</p>
-            <p><strong>Suitable Crops:</strong> All crops — especially recommended for cotton, grapes, pomegranate, chilli, tomato, banana, paddy, and export-quality vegetables</p>
-            <p><strong>Compatibility:</strong> Compatible with all water-soluble fertilizers and most crop protection products.</p>
+            <p><strong>Dosage:</strong> Soil: 1–2 kg/acre | Foliar: 0.5–1 gm/liter after dissolving</p>
+            <p><strong>Suitable Crops:</strong> Cotton, Grapes, Pomegranate, Chilli, Tomato, Banana, Paddy, export-quality vegetables</p>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // ===== Amino Acids Panel =====
+        function openAAPanel() {
+            document.getElementById('aaOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            hideAASub();
+        }
+        function closeAAPanel() {
+            document.getElementById('aaOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        function closeAAOnBg(e) {
+            if (e.target === document.getElementById('aaOverlay')) closeAAPanel();
+        }
+        function showAASub(type) {
+            document.getElementById('aaTypeGrid').style.display = 'none';
+            if (type === 'liquid') {
+                document.getElementById('aaLiquid').classList.add('active');
+            } else {
+                document.getElementById('aaPowder').classList.add('active');
+            }
+        }
+        function hideAASub() {
+            document.getElementById('aaTypeGrid').style.display = 'grid';
+            document.getElementById('aaLiquid').classList.remove('active');
+            document.getElementById('aaPowder').classList.remove('active');
+        }
+        // Close AA panel with Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeAAPanel();
+        });
+    </script>
 </body>
-
 </html>
