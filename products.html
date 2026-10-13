@@ -189,6 +189,46 @@
                     <button class="btn btn-small">View Details</button>
                 </div>
 
+                <!-- VITORA -->
+                <div class="product-card" onclick="openModal('vitora')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/QvRkLsM8/vitora.jpg" alt="VITORA" onerror="this.parentElement.innerHTML='<i class=\'fas fa-leaf\' style=\'font-size:3rem;color:var(--primary,#2c6e2c);\'></i>'">
+                    </div>
+                    <h3>VITORA - Spirulina 10%</h3>
+                    <p>Plant Growth Promoter &amp; Biostimulant — Foliar Spray</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <!-- NEORA -->
+                <div class="product-card" onclick="openModal('neora')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/QvRkLsM8/neora.jpg" alt="NEORA" onerror="this.parentElement.innerHTML='<i class=\'fas fa-seedling\' style=\'font-size:3rem;color:var(--primary,#2c6e2c);\'></i>'">
+                    </div>
+                    <h3>NEORA - Root Zone Activator</h3>
+                    <p>Protein Hydrolysate 1.5% (Plant Source) Granules</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <!-- VJ PHYTORA -->
+                <div class="product-card" onclick="openModal('phytora')">
+                    <div class="product-image">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>VJ PHYTORA - Humic Acid 6%</h3>
+                    <p>Plant Growth Promoter &amp; Biostimulant — Liquid</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
+                <!-- PROTOS -->
+                <div class="product-card" onclick="openModal('protos')">
+                    <div class="product-image-photo">
+                        <img src="https://i.ibb.co/QvRkLsM8/protos.jpg" alt="PROTOS" onerror="this.parentElement.innerHTML='<i class=\'fas fa-flask\' style=\'font-size:3rem;color:var(--primary,#2c6e2c);\'></i>'">
+                    </div>
+                    <h3>PROTOS - Potassium Thiosulphate</h3>
+                    <p>K₂O 25% | S 17% — Liquid Fertilizer for all crops</p>
+                    <button class="btn btn-small">View Details</button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -677,5 +717,130 @@
             if (e.key === 'Escape') closeAAPanel();
         });
     </script>
+
+    <!-- VITORA -->
+    <div id="vitora" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('vitora')">&times;</span>
+            <h2>VITORA — Spirulina 10% Plant Growth Promoter &amp; Biostimulant</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd., Gajulamadyam (V), Renigunta (M), Tirupathi Dist., Andhra Pradesh — 517520</p>
+            <p><strong>Lic No.:</strong> TPT/ADDL.DA/FM/2025/E/0492</p>
+            <p><strong>Description:</strong> VITORA is a Spirulina-based plant growth promoter and biostimulant formulated with natural polysaccharides and organic components to support vigorous plant growth, stronger root development, efficient nutrient utilization, enhanced photosynthetic activity, flowering, fruit setting, and improved crop quality.</p>
+            <p><strong>Composition (% by weight, Minimum):</strong></p>
+            <ul>
+                <li>Spirulina Powder: 10%</li>
+                <li>Propylene Glycol: 5%</li>
+                <li>Lignin Sulfonate: 5%</li>
+                <li>Polysaccharide: 0.1%</li>
+                <li>Citric Acid: 0.1%</li>
+                <li>Water: QS — Total: 100%</li>
+            </ul>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Spirulina's natural phytonutrients and amino acids fuel rapid vegetative growth</li>
+                <li>Enhances photosynthetic efficiency for deep green, productive canopy</li>
+                <li>Improves root strength and proliferation</li>
+                <li>Boosts flowering and increases fruit set percentage</li>
+                <li>Improves stress tolerance — drought, heat, and salinity</li>
+                <li>Enhances nutrient uptake and utilization efficiency</li>
+                <li>Improves overall crop quality and post-harvest shelf life</li>
+            </ul>
+            <p><strong>Dosage:</strong> 2.5 to 3.5 ml per litre of water</p>
+            <p><strong>Application:</strong> Foliar spray for Chilli, Cotton, and other crops</p>
+            <p><strong>Contact:</strong> Vijayamsales2@gmail.com | +91 7207881184</p>
+        </div>
+    </div>
+
+    <!-- NEORA -->
+    <div id="neora" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('neora')">&times;</span>
+            <h2>NEORA — Plant Source Protein Hydrolysate 1.5% Granules (Root Zone Activator)</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd., Gajulamadyam (V), Renigunta (M), Tirupathi Dist., Andhra Pradesh — 517520</p>
+            <p><strong>Lic No.:</strong> TPT/ADDL.DA/FM/2025/E/0492</p>
+            <p><strong>Description:</strong> NEORA is a specially formulated bentonite-based granule enriched with plant-source Protein Hydrolysate derived from defatted soybean seed flour through enzymatic hydrolysis using papain. It supplies naturally derived amino acids and peptides to the soil and root zone, supporting healthy root development, improved nutrient utilization, and vigorous crop growth.</p>
+            <p><strong>Composition (% by weight, Minimum):</strong></p>
+            <ul>
+                <li>Protein Hydrolysate (Plant Source, derived from defatted soybean seed flour by enzymatic/papain hydrolysis): 1.5%</li>
+                <li>Bentonite: 98.5%</li>
+                <li>Total: 100%</li>
+            </ul>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Activates the root zone with naturally derived amino acids and peptides</li>
+                <li>Stimulates root hair development and lateral root proliferation</li>
+                <li>Improves soil structure and water holding capacity around the root zone</li>
+                <li>Enhances soil microbial diversity and activity</li>
+                <li>Supports efficient uptake of N, P, K and micronutrients</li>
+                <li>Promotes vigorous early crop establishment</li>
+                <li>Improves plant resilience and overall yield</li>
+            </ul>
+            <p><strong>Dosage:</strong> 10 to 20 kg per acre</p>
+            <p><strong>Application:</strong> Soil application for Tomato, Chilli, Cotton, and other crops</p>
+            <p><strong>Contact:</strong> Vijayamsales2@gmail.com | +91 7207881184</p>
+        </div>
+    </div>
+
+    <!-- VJ PHYTORA -->
+    <div id="phytora" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('phytora')">&times;</span>
+            <h2>VJ PHYTORA — Humic Acid 6% Liquid Plant Growth Promoter &amp; Biostimulant</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd., Gajulamadyam (V), Renigunta (M), Tirupathi Dist., Andhra Pradesh — 517520</p>
+            <p><strong>Lic No.:</strong> TPT/ADDL.DA/FM/2025/E/0492</p>
+            <p><strong>Description:</strong> VJ PHYTORA is a premium Leonardite-derived Humic Acid 6% liquid formulation designed to improve soil and plant performance. It supports healthy root development, efficient nutrient uptake and utilization, vigorous plant growth, and better crop establishment and development. <em>Stronger Roots • Better Nutrient Uptake • Vigorous Growth.</em></p>
+            <p><strong>Composition (% by weight, Minimum):</strong></p>
+            <ul>
+                <li>Humic Acid (as Potassium Humate, obtained from Leonardite mineral source): 6%</li>
+                <li>Water: QS — Total: 100%</li>
+            </ul>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Leonardite-sourced humic acid for superior bioactivity and soil conditioning</li>
+                <li>Chelates soil nutrients making them readily available to plants</li>
+                <li>Stimulates deep, healthy root system development</li>
+                <li>Improves Cation Exchange Capacity (CEC) of soil</li>
+                <li>Enhances soil water retention and aeration</li>
+                <li>Boosts soil microbial population and organic matter</li>
+                <li>Promotes vigorous vegetative growth and better crop establishment</li>
+                <li>Improves fertilizer use efficiency and reduces input costs</li>
+            </ul>
+            <p><strong>Dosage:</strong> 5 to 7 ml per litre of water</p>
+            <p><strong>Application:</strong> Foliar spray for Chilli, Cotton, and other crops</p>
+            <p><strong>Contact:</strong> Vijayamsales2@gmail.com | +91 7207881184</p>
+        </div>
+    </div>
+
+    <!-- PROTOS -->
+    <div id="protos" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('protos')">&times;</span>
+            <h2>PROTOS — Potassium Thiosulphate (KTS) Liquid Fertilizer | K₂O 25% | S 17%</h2>
+            <p><strong>Manufacturer:</strong> Vijayam Biocytes Pvt. Ltd., Gajulamadyam (V), Renigunta (M), Tirupathi Dist., Andhra Pradesh — 517520</p>
+            <p><strong>Lic No.:</strong> TPT/ADDL.DA/FM/2025/E/0492</p>
+            <p><strong>Description:</strong> PROTOS is a high-efficiency liquid Potassium and Sulphur fertilizer formulated to provide readily available potassium and sulphur for balanced crop nutrition. It supports strong plant growth, improves nutrient utilization, enhances flowering and fruit development, and contributes to better crop quality and yield. <em>Strong Growth • Better Flowering • Improved Fruit Development • Enhanced Crop Quality.</em></p>
+            <p><strong>Composition (% by weight):</strong></p>
+            <ul>
+                <li>Total Potassium as K₂O: 25%</li>
+                <li>Total Sulphur as S: 17%</li>
+            </ul>
+            <p><strong>Key Benefits:</strong></p>
+            <ul>
+                <li>Dual nutrition — Potassium &amp; Sulphur in one shot</li>
+                <li>Potassium activates 60+ plant enzymes for efficient metabolism</li>
+                <li>Improves photosynthesis, sugar transport, and starch synthesis</li>
+                <li>Sulphur is essential for protein synthesis and chlorophyll formation</li>
+                <li>Enhances flowering abundance and fruit set</li>
+                <li>Improves fruit size, colour, and sweetness</li>
+                <li>Strengthens plant cell walls for better pest &amp; disease resistance</li>
+                <li>Improves water use efficiency and drought tolerance</li>
+                <li>Enhances overall crop quality and post-harvest shelf life</li>
+            </ul>
+            <p><strong>Dosage:</strong> 2.5 to 3.5 ml per litre of water</p>
+            <p><strong>Application:</strong> Foliar spray for Chilli, Cotton, Maize, Vegetables, and all other crops</p>
+            <p><strong>Contact:</strong> Vijayamsales2@gmail.com | +91 7207881184</p>
+        </div>
+    </div>
+
 </body>
 </html>
